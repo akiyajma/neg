@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neg-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: neg-deployment
+  template:
+    metadata:
+      labels:
+        app: neg-deployment
+    spec:
+      containers:
+      - name: neg-deployment
+        image: gcr.io/google-samples/hello-app:2.0
+        ports:
+        - containerPort: 8080
